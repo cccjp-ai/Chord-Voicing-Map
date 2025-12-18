@@ -2,10 +2,11 @@
   const { STRING_SETS, QUALITIES, INVERSIONS, FRET_RANGE } = global.CHORD_CONFIG;
   const { generateShape } = global.ChordLogic;
 
-  const stringSetSelect = document.getElementById("stringSet");
-  const qualityButtons = Array.from(document.querySelectorAll(".seg-button"));
+  const stringSetGroup = document.getElementById("stringSet");
+  const qualityButtons = Array.from(document.querySelectorAll(".seg-button[data-quality]"));
   const cards = Array.from(document.querySelectorAll(".inversion-card"));
   const liveRegion = document.getElementById("shape-live");
+  let stringSetButtons = [];
 
   function getInversionLabel(key) {
     const item = INVERSIONS.find((inv) => inv.key === key);
@@ -13,13 +14,24 @@
   }
 
   function populateStringSets() {
-    STRING_SETS.forEach((set) => {
-      const opt = document.createElement("option");
-      opt.value = set.id;
-      opt.textContent = set.label;
-      stringSetSelect.appendChild(opt);
+    stringSetGroup.innerHTML = "";
+    const orderedSets = [...STRING_SETS].reverse();
+    stringSetButtons = orderedSets.map((set, index) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "seg-button";
+      btn.textContent = set.label;
+      btn.dataset.stringSet = set.id;
+      btn.setAttribute("aria-pressed", index === 0 ? "true" : "false");
+      if (index === 0) btn.classList.add("is-active");
+      stringSetGroup.appendChild(btn);
+      return btn;
     });
-    stringSetSelect.value = STRING_SETS[0].id;
+  }
+
+  function currentStringSet() {
+    const active = stringSetButtons.find((btn) => btn.classList.contains("is-active"));
+    return active ? active.dataset.stringSet : STRING_SETS[0].id;
   }
 
   function currentQuality() {
@@ -41,27 +53,45 @@
       return;
     }
 
-    const strings = shape.orderedStrings;
+    const strings = [...shape.stringSet.strings].sort((a, b) => a - b);
+    labelsEl.style.setProperty("--rows", strings.length);
     labelsEl.innerHTML = strings.map((s) => `<span>Str ${s}</span>`).join("");
 
     grid.innerHTML = "";
-    const rows = FRET_RANGE.max - FRET_RANGE.min + 1;
+    const rows = strings.length;
+    const cols = FRET_RANGE.max - FRET_RANGE.min + 1;
+    const totalCols = 5;
+    const leftPaddingCols =
+      (qualityKey === "min" && shape.stringSet.id === "1-3" && shape.inversion === "first") ||
+      (qualityKey === "maj" && shape.stringSet.id === "2-4" && shape.inversion === "second")
+        ? 2
+        : 1;
+    const visibleFrets = Math.min(totalCols - leftPaddingCols, cols);
+    const maxFret = FRET_RANGE.min + visibleFrets - 1;
     grid.style.setProperty("--rows", rows);
+    grid.style.setProperty("--cols", totalCols);
 
     const pointLookup = new Map(
       shape.points.map((p) => [`${p.string}:${p.fret}`, p])
     );
 
-    for (let fret = FRET_RANGE.min; fret <= FRET_RANGE.max; fret += 1) {
-      for (let c = 0; c < strings.length; c += 1) {
+    for (let r = 0; r < strings.length; r += 1) {
+      for (let pad = 0; pad < leftPaddingCols; pad += 1) {
+        const spacer = document.createElement("div");
+        spacer.className = "grid-cell";
+        grid.appendChild(spacer);
+      }
+      for (let fret = FRET_RANGE.min; fret <= maxFret; fret += 1) {
         const cell = document.createElement("div");
         cell.className = "grid-cell";
 
-        const key = `${strings[c]}:${fret}`;
+        const key = `${strings[r]}:${fret}`;
         if (pointLookup.has(key)) {
           const note = document.createElement("div");
           note.className = `note ${qualityClass(qualityKey)}`;
-          note.textContent = pointLookup.get(key).label;
+          const label = pointLookup.get(key).label;
+          note.textContent = label;
+          if (label === "R") note.classList.add("note-root");
           cell.appendChild(note);
         }
 
@@ -76,7 +106,7 @@
   }
 
   function render() {
-    const setId = stringSetSelect.value;
+    const setId = currentStringSet();
     const quality = currentQuality();
     const shapes = INVERSIONS.map((inv) => ({
       inversion: inv.key,
@@ -102,7 +132,17 @@
   }
 
   function bindEvents() {
-    stringSetSelect.addEventListener("change", render);
+    stringSetButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        stringSetButtons.forEach((b) => {
+          b.classList.remove("is-active");
+          b.setAttribute("aria-pressed", "false");
+        });
+        btn.classList.add("is-active");
+        btn.setAttribute("aria-pressed", "true");
+        render();
+      });
+    });
 
     qualityButtons.forEach((btn) => {
       btn.addEventListener("click", () => {

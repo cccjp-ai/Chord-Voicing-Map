@@ -10,16 +10,12 @@
   <div class="page">
     <header class="hero">
       <p class="eyebrow">Chord Voicing Map</p>
-      <h1>Close triads on three consecutive strings</h1>
-      <p class="lede">
-        Standard tuning, close voicings only. One compact, playable shape for each inversion.
-      </p>
     </header>
 
     <section class="panel controls" aria-label="Chord controls">
       <div class="control">
-        <label for="stringSet">String set</label>
-        <select id="stringSet" name="stringSet"></select>
+        <label id="stringSetLabel">String set</label>
+        <div id="stringSet" class="segmented string-set" role="group" aria-labelledby="stringSetLabel"></div>
       </div>
       <div class="control">
         <label for="quality">Chord quality</label>
@@ -33,29 +29,32 @@
     <section class="panel inversions" aria-label="Inversion shapes">
       <article class="inversion-card" data-inversion="root">
         <div class="card-head">
-          <p class="tag">Root</p>
-          <h2>Root in bass</h2>
+          <h2>Root <span class="in-bass">in bass</span></h2>
         </div>
-        <div class="string-labels" aria-hidden="true"></div>
-        <div class="fret-grid" role="img" aria-label="Root inversion grid"></div>
+        <div class="diagram">
+          <div class="string-labels" aria-hidden="true"></div>
+          <div class="fret-grid" role="img" aria-label="Root inversion grid"></div>
+        </div>
       </article>
 
       <article class="inversion-card" data-inversion="first">
         <div class="card-head">
-          <p class="tag">1st</p>
-          <h2>3rd in bass</h2>
+          <h2>3rd <span class="in-bass">in bass</span></h2>
         </div>
-        <div class="string-labels" aria-hidden="true"></div>
-        <div class="fret-grid" role="img" aria-label="First inversion grid"></div>
+        <div class="diagram">
+          <div class="string-labels" aria-hidden="true"></div>
+          <div class="fret-grid" role="img" aria-label="First inversion grid"></div>
+        </div>
       </article>
 
       <article class="inversion-card" data-inversion="second">
         <div class="card-head">
-          <p class="tag">2nd</p>
-          <h2>5th in bass</h2>
+          <h2>5th <span class="in-bass">in bass</span></h2>
         </div>
-        <div class="string-labels" aria-hidden="true"></div>
-        <div class="fret-grid" role="img" aria-label="Second inversion grid"></div>
+        <div class="diagram">
+          <div class="string-labels" aria-hidden="true"></div>
+          <div class="fret-grid" role="img" aria-label="Second inversion grid"></div>
+        </div>
       </article>
     </section>
 

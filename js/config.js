@@ -44,7 +44,7 @@
     },
   };
 
-  const FRET_RANGE = { min: 0, max: 4 };
+  const FRET_RANGE = { min: 0, max: 3 };
 
   const INVERSIONS = [
     { key: "root", label: "Root" },
