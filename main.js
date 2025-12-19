@@ -5,10 +5,10 @@ const APP_NAME = "CHORD VOICING MAP";
 
 function createWindow() {
   const win = new BrowserWindow({
-    width: 1200,
-    height: 820,
-    minWidth: 900,
-    minHeight: 600,
+    width: 1000,
+    height: 570,
+    minWidth: 800,
+    minHeight: 520,
     title: APP_NAME,
     backgroundColor: "#0b1224",
     icon: path.join(__dirname, "img", "app_icon.png"),
