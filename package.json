@@ -1,0 +1,41 @@
+{
+  "name": "chord-voicing-map",
+  "version": "1.0.0",
+  "description": "Chord Voicing Map desktop app",
+  "author": "CHORD VOICING MAP",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^28.2.3",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.chordvoicingmap.app",
+    "productName": "CHORD VOICING MAP",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "!dist/**",
+      "!build/icon.iconset/**",
+      "!node_modules/.bin/**"
+    ],
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "arm64"
+          ]
+        }
+      ],
+      "category": "public.app-category.music",
+      "icon": "img/app_icon.png"
+    }
+  }
+}
