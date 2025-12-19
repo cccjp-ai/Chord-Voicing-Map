@@ -9,6 +9,7 @@
   const cards = Array.from(document.querySelectorAll(".inversion-card"));
   const liveRegion = document.getElementById("shape-live");
   let stringSetButtons = [];
+  const DEFAULT_STRING_SET = "4-6";
 
   function getInversionLabel(key) {
     const item = INVERSIONS.find((inv) => inv.key === key);
@@ -18,14 +19,15 @@
   function populateStringSets() {
     stringSetGroup.innerHTML = "";
     const orderedSets = [...STRING_SETS];
-    stringSetButtons = orderedSets.map((set, index) => {
+    stringSetButtons = orderedSets.map((set) => {
       const btn = document.createElement("button");
       btn.type = "button";
       btn.className = "seg-button";
       btn.textContent = set.label;
       btn.dataset.stringSet = set.id;
-      btn.setAttribute("aria-pressed", index === 0 ? "true" : "false");
-      if (index === 0) btn.classList.add("is-active");
+      const isDefault = set.id === DEFAULT_STRING_SET;
+      btn.setAttribute("aria-pressed", isDefault ? "true" : "false");
+      if (isDefault) btn.classList.add("is-active");
       stringSetGroup.appendChild(btn);
       return btn;
     });
@@ -33,7 +35,7 @@
 
   function currentStringSet() {
     const active = stringSetButtons.find((btn) => btn.classList.contains("is-active"));
-    return active ? active.dataset.stringSet : STRING_SETS[0].id;
+    return active ? active.dataset.stringSet : DEFAULT_STRING_SET;
   }
 
   function currentQuality() {

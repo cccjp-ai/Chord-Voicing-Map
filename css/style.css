@@ -47,7 +47,7 @@ body {
 .eyebrow {
   text-transform: uppercase;
   letter-spacing: 4px;
-  font-size: calc(23px * var(--font-scale));
+  font-size: calc(16.67px * var(--font-scale));
   font-weight: 600;
   line-height: 1;
   color: transparent;
