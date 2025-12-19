@@ -14,6 +14,7 @@
   --note-major: #fbbf24;
   --note-minor: #6ee7b7;
   --note-root: #dc2626;
+  --string-set-highlight: #ff4fa3;
   --font-scale: 1.5;
 }
 
@@ -79,8 +80,10 @@ body {
 
 .controls {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 16px;
+  grid-template-columns: max-content max-content;
+  column-gap: 12px;
+  row-gap: 8px;
+  justify-content: start;
   margin-bottom: 20px;
   align-items: end;
 }
@@ -117,15 +120,76 @@ select:focus {
   gap: 4px;
 }
 
+.string-set-control {
+  width: 300px;
+  --string-set-row-height: 44px;
+  --string-set-gap: 4px;
+  --string-set-pad: 4px;
+  --string-set-total-height: calc(
+    var(--string-set-row-height) * 4 +
+    var(--string-set-gap) * 3 +
+    var(--string-set-pad) * 2
+  );
+}
+
+.string-set-layout {
+  width: 300px;
+  display: grid;
+  grid-template-columns: auto minmax(160px, 1fr);
+  gap: 12px;
+  align-items: stretch;
+}
+
 .string-set {
-  width: 100%;
-  flex-wrap: wrap;
+  width: 100px;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: var(--string-set-gap);
+  padding: var(--string-set-pad);
 }
 
 .string-set .seg-button {
-  flex: 1 1 80px;
+  flex: 0 0 auto;
+  width: 100%;
+  min-height: var(--string-set-row-height);
   text-align: center;
   font-size: 1.1em;
+  letter-spacing: 0.2em;
+}
+
+.string-set .seg-button.is-active {
+  background: rgba(255, 79, 163, 0.55);
+  color: #ffffff;
+}
+
+.string-set-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--card);
+  border: 1px solid var(--panel-outline);
+  border-radius: 12px;
+  padding: 8px;
+  height: var(--string-set-total-height);
+  overflow: hidden;
+}
+
+#stringSetPreviewWrap {
+  width: 150px;
+}
+
+.string-set-preview img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+  transform: scale(1.2);
+  transform-origin: center;
+}
+
+.string-set-preview.is-hidden {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .seg-button {
@@ -294,6 +358,14 @@ select:focus {
 }
 
 @media (max-width: 720px) {
+  .controls {
+    grid-template-columns: 1fr;
+  }
+
+  .string-set-layout {
+    grid-template-columns: 1fr;
+  }
+
   .card-head {
     flex-direction: column;
     align-items: flex-start;

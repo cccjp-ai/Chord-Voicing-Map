@@ -3,6 +3,8 @@
   const { generateShape } = global.ChordLogic;
 
   const stringSetGroup = document.getElementById("stringSet");
+  const stringSetPreviewWrap = document.getElementById("stringSetPreviewWrap");
+  const stringSetPreview = document.getElementById("stringSetPreview");
   const qualityButtons = Array.from(document.querySelectorAll(".seg-button[data-quality]"));
   const cards = Array.from(document.querySelectorAll(".inversion-card"));
   const liveRegion = document.getElementById("shape-live");
@@ -15,7 +17,7 @@
 
   function populateStringSets() {
     stringSetGroup.innerHTML = "";
-    const orderedSets = [...STRING_SETS].reverse();
+    const orderedSets = [...STRING_SETS];
     stringSetButtons = orderedSets.map((set, index) => {
       const btn = document.createElement("button");
       btn.type = "button";
@@ -112,6 +114,19 @@
       inversion: inv.key,
       shape: generateShape(setId, quality, inv.key),
     }));
+
+    if (stringSetPreview && stringSetPreviewWrap) {
+      const set = STRING_SETS.find((item) => item.id === setId);
+      if (set) {
+        stringSetPreview.src = `img/${set.id}.png`;
+        stringSetPreview.alt = `String set ${set.label}`;
+        stringSetPreviewWrap.classList.remove("is-hidden");
+      } else {
+        stringSetPreview.src = "";
+        stringSetPreview.alt = "";
+        stringSetPreviewWrap.classList.add("is-hidden");
+      }
+    }
 
     shapes.forEach(({ inversion, shape }) => {
       const card = cards.find((c) => c.dataset.inversion === inversion);
