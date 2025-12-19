@@ -9,7 +9,7 @@
   const cards = Array.from(document.querySelectorAll(".inversion-card"));
   const liveRegion = document.getElementById("shape-live");
   let stringSetButtons = [];
-  const DEFAULT_STRING_SET = "4-6";
+  const DEFAULT_STRING_SET = "1-3";
 
   function getInversionLabel(key) {
     const item = INVERSIONS.find((inv) => inv.key === key);
