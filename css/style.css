@@ -28,14 +28,12 @@ body {
   margin: 0;
   font-family: "Avenir Next", "Gill Sans", "Segoe UI", sans-serif;
   color: var(--text);
-  background: radial-gradient(circle at 10% 20%, rgba(110, 231, 183, 0.08), transparent 25%),
-    radial-gradient(circle at 80% 0%, rgba(245, 158, 11, 0.12), transparent 35%),
-    linear-gradient(135deg, var(--bg-top), var(--bg-bottom));
+  background: radial-gradient(circle at 10% 20%, rgba(15, 22, 41, 1) 1%, rgba(19, 30, 58, 1) 41%, rgba(110, 231, 183, 0.08) 73%);
   min-height: 100vh;
 }
 
 .page {
-  max-width: 1200px;
+  max-width: 960px;
   margin: 0 auto;
   padding: 32px 20px 48px;
 }
@@ -149,6 +147,7 @@ select:focus {
   color: #ffffff;
 }
 
+
 .string-set-preview {
   display: flex;
   align-items: center;
@@ -185,7 +184,12 @@ select:focus {
   border-radius: 10px;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.15s ease, color 0.15s ease;
+  transition: background 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+}
+
+.seg-button:not(.is-active):hover {
+  background: rgba(255, 255, 255, 0.06);
+  opacity: 0.85;
 }
 
 .seg-button[data-quality] {
@@ -215,14 +219,15 @@ select:focus {
 .inversions {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 16px;
+  gap: calc(16px * var(--inv-scale, 1));
+  --inv-scale: 0.85;
 }
 
 .inversion-card {
   background: var(--card);
   border: 1px solid var(--panel-outline);
-  border-radius: var(--radius);
-  padding: 16px;
+  border-radius: calc(var(--radius) * var(--inv-scale, 1));
+  padding: calc(16px * var(--inv-scale, 1));
   box-shadow: var(--shadow);
   position: relative;
   overflow: hidden;
@@ -240,14 +245,14 @@ select:focus {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  margin-bottom: 12px;
+  margin-bottom: calc(12px * var(--inv-scale, 1));
   text-align: right;
   vertical-align: middle;
 }
 
 .card-head h2 {
   margin: 0;
-  font-size: calc(18px * var(--font-scale));
+  font-size: calc(18px * var(--font-scale) * var(--inv-scale, 1));
   text-align: left;
 }
 
@@ -257,17 +262,17 @@ select:focus {
 
 .tag {
   margin: 0;
-  font-size: calc(13px * var(--font-scale));
+  font-size: calc(13px * var(--font-scale) * var(--inv-scale, 1));
   color: var(--muted);
   letter-spacing: 0.04em;
 }
 
 .string-labels {
   display: grid;
-  grid-template-rows: repeat(var(--rows, 3), 52px);
-  gap: 6px;
+  grid-template-rows: repeat(var(--rows, 3), calc(52px * var(--inv-scale, 1)));
+  gap: calc(6px * var(--inv-scale, 1));
   margin: 0;
-  font-size: calc(13px * var(--font-scale));
+  font-size: calc(13px * var(--font-scale) * var(--inv-scale, 1));
   color: var(--muted);
   text-align: right;
   justify-items: end;
@@ -277,7 +282,7 @@ select:focus {
 .diagram {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 10px;
+  gap: calc(10px * var(--inv-scale, 1));
   align-items: center;
 }
 
@@ -286,18 +291,18 @@ select:focus {
   --cols: 5;
   position: relative;
   display: grid;
-  grid-template-columns: repeat(var(--cols), minmax(44px, 1fr));
-  grid-template-rows: repeat(var(--rows), 52px);
-  gap: 6px;
+  grid-template-columns: repeat(var(--cols), minmax(calc(44px * var(--inv-scale, 1)), 1fr));
+  grid-template-rows: repeat(var(--rows), calc(52px * var(--inv-scale, 1)));
+  gap: calc(6px * var(--inv-scale, 1));
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
-  border-radius: 12px;
+  border-radius: calc(12px * var(--inv-scale, 1));
   border: 1px solid var(--panel-outline);
-  padding: 6px;
+  padding: calc(6px * var(--inv-scale, 1));
 }
 
 .grid-cell {
   border: 1px dashed var(--grid-lines);
-  border-radius: 10px;
+  border-radius: calc(10px * var(--inv-scale, 1));
   position: relative;
 }
 
@@ -308,7 +313,7 @@ select:focus {
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: calc(14px * var(--font-scale));
+  font-size: calc(14px * var(--font-scale) * var(--inv-scale, 1));
   border-radius: 999px;
   color: #0b1224;
 }
