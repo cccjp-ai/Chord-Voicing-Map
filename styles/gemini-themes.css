@@ -1,0 +1,249 @@
+/*
+ * Gemini Theme Variations
+ * -----------------------
+ * themeA-gemini: Neo-Glass (Minimal interpretation)
+ * themeB-gemini: Cyber-Console (Studio interpretation)
+ * themeC-gemini: Modern Academic (Learning interpretation)
+ */
+
+/* ===== Theme A-Gemini: Neo-Glass ===== */
+[data-theme="themeA-gemini"] {
+  --bg-primary: #f0f2f5;
+  --bg-secondary: #e4e7eb;
+  --bg-gradient: radial-gradient(circle at top left, #ffffff 0%, #f0f2f5 100%);
+  --panel-bg: rgba(255, 255, 255, 0.7);
+  --panel-outline: rgba(255, 255, 255, 0.5);
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --card-outline: rgba(255, 255, 255, 0.8);
+  --accent: #007aff;
+  --accent-2: #5856d6;
+  --text-primary: #1d1d1f;
+  --text-secondary: #86868b;
+  --shadow-card: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+  --shadow-panel: 0 4px 16px 0 rgba(31, 38, 135, 0.05);
+  --grid-lines: rgba(0, 0, 0, 0.04);
+  
+  --note-major: #ffcc00;
+  --note-minor: #34c759;
+  --note-root: #ff3b30;
+  --string-set-highlight: #ff2d55;
+  
+  --font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+  --font-scale: 1.3;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 600;
+  --letter-spacing-title: -0.01em;
+  
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 40px;
+  --page-padding: 60px 40px;
+  
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-button: 12px;
+  --radius-card: 24px;
+  
+  --border-width: 1px;
+  --border-style: solid;
+  
+  --button-bg: rgba(255, 255, 255, 0.5);
+  --button-bg-active: #ffffff;
+  --button-border: 1px solid rgba(255, 255, 255, 0.3);
+  --button-padding: 12px 24px;
+  --button-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  
+  --segmented-bg: rgba(0, 0, 0, 0.05);
+  --segmented-gap: 2px;
+  --segmented-padding: 2px;
+  --segmented-height: 52px;
+  
+  --grid-bg: transparent;
+  --cell-border-style: solid;
+  --cell-border-color: rgba(0, 0, 0, 0.03);
+  
+  --card-glow: none;
+  --inv-scale: 0.95;
+}
+
+[data-theme="themeA-gemini"] .panel,
+[data-theme="themeA-gemini"] .inversion-card,
+[data-theme="themeA-gemini"] .segmented {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* ===== Theme B-Gemini: Cyber-Console ===== */
+[data-theme="themeB-gemini"] {
+  --bg-primary: #050508;
+  --bg-secondary: #0c0c14;
+  --bg-gradient: linear-gradient(135deg, #050508 0%, #11111d 100%);
+  --panel-bg: #11111d;
+  --panel-outline: #22223b;
+  --card-bg: #161625;
+  --card-outline: #2d2d44;
+  --accent: #00f2ff;
+  --accent-2: #7000ff;
+  --text-primary: #e0e0ff;
+  --text-secondary: #9494b8;
+  --shadow-card: 0 0 20px rgba(0, 0, 0, 0.8), inset 0 0 1px rgba(255, 255, 255, 0.1);
+  --shadow-panel: 0 0 40px rgba(0, 0, 0, 0.9);
+  --grid-lines: rgba(0, 242, 255, 0.05);
+  
+  --note-major: #00f2ff;
+  --note-minor: #ff00ff;
+  --note-root: #ff3366;
+  --string-set-highlight: #7000ff;
+  
+  --font-family: "JetBrains Mono", "Fira Code", "Roboto Mono", monospace;
+  --font-scale: 1.25;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --letter-spacing-title: 0.1em;
+  
+  --spacing-xs: 6px;
+  --spacing-sm: 14px;
+  --spacing-md: 20px;
+  --spacing-lg: 32px;
+  --page-padding: 32px;
+  
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-button: 2px;
+  --radius-card: 4px;
+  
+  --border-width: 1px;
+  --border-style: solid;
+  
+  --button-bg: #1c1c2e;
+  --button-bg-active: #2d2d44;
+  --button-border: 1px solid #3d3d5c;
+  --button-padding: 10px 18px;
+  --button-shadow: none;
+  
+  --segmented-bg: #0c0c14;
+  --segmented-gap: 1px;
+  --segmented-padding: 1px;
+  --segmented-height: 56px;
+  
+  --grid-bg: #09090f;
+  --cell-border-style: solid;
+  --cell-border-color: #1a1a2e;
+  
+  --card-glow: 0 0 15px rgba(112, 0, 255, 0.1);
+  --inv-scale: 0.9;
+}
+
+[data-theme="themeB-gemini"] .note {
+  box-shadow: 0 0 12px currentColor;
+  text-shadow: 0 0 4px rgba(0,0,0,0.5);
+}
+
+[data-theme="themeB-gemini"] .seg-button.is-active {
+  box-shadow: 0 0 15px currentColor;
+  border-color: currentColor;
+}
+
+[data-theme="themeB-gemini"] .inversion-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0.5;
+}
+
+/* ===== Theme C-Gemini: Modern Academic ===== */
+[data-theme="themeC-gemini"] {
+  --bg-primary: #fdfaf6;
+  --bg-secondary: #f4f1ec;
+  --bg-gradient: linear-gradient(180deg, #fdfaf6 0%, #f4f1ec 100%);
+  --panel-bg: #ffffff;
+  --panel-outline: #e6e0d5;
+  --card-bg: #ffffff;
+  --card-outline: #dcd4c9;
+  --accent: #2c3e50;
+  --accent-2: #8e44ad;
+  --text-primary: #2c3e50;
+  --text-secondary: #7f8c8d;
+  --shadow-card: 2px 2px 0px #e6e0d5;
+  --shadow-panel: 4px 4px 0px rgba(0, 0, 0, 0.05);
+  --grid-lines: #eee;
+  
+  --note-major: #e67e22;
+  --note-minor: #27ae60;
+  --note-root: #c0392b;
+  --string-set-highlight: #2980b9;
+  
+  --font-family: "Charter", "Georgia", serif;
+  --font-scale: 1.4;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --letter-spacing-title: 0.02em;
+  
+  --spacing-xs: 12px;
+  --spacing-sm: 20px;
+  --spacing-md: 32px;
+  --spacing-lg: 48px;
+  --page-padding: 50px;
+  
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-button: 6px;
+  --radius-card: 12px;
+  
+  --border-width: 1.5px;
+  --border-style: solid;
+  
+  --button-bg: #ffffff;
+  --button-bg-active: #f8f9fa;
+  --button-border: 1.5px solid #2c3e50;
+  --button-padding: 12px 20px;
+  --button-shadow: none;
+  
+  --segmented-bg: #fdfaf6;
+  --segmented-gap: 8px;
+  --segmented-padding: 4px;
+  --segmented-height: 60px;
+  
+  --grid-bg: #fff;
+  --cell-border-style: solid;
+  --cell-border-color: #eee;
+  
+  --card-glow: none;
+  --inv-scale: 0.92;
+}
+
+[data-theme="themeC-gemini"] .eyebrow {
+  font-family: "Inter", sans-serif;
+  letter-spacing: 0.2em;
+  font-size: 11px;
+  border-bottom: 1px solid var(--accent);
+  display: inline-block;
+  padding-bottom: 4px;
+  margin-bottom: 24px;
+}
+
+[data-theme="themeC-gemini"] h2 {
+  font-style: italic;
+  font-weight: 500;
+}
+
+[data-theme="themeC-gemini"] .note {
+  border: 1.5px solid #2c3e50;
+}
+
+[data-theme="themeC-gemini"] .fret-grid {
+  border-width: 2px;
+  box-shadow: inset 1px 1px 4px rgba(0,0,0,0.05);
+}
+

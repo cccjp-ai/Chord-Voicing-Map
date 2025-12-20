@@ -6,9 +6,12 @@
   const THEME_KEY = "chord-voicing-map-theme";
   const DEFAULT_THEME = "themeA";
   const THEMES = [
-    { id: "themeA", label: "A: Minimal" },
-    { id: "themeB", label: "B: Studio" },
-    { id: "themeC", label: "C: Learning" },
+    { id: "themeA", label: "A: Minimal (Opus)" },
+    { id: "themeB", label: "B: Studio (Opus)" },
+    { id: "themeC", label: "C: Learning (Opus)" },
+    { id: "themeA-gemini", label: "A: Neo-Glass (Gemini)" },
+    { id: "themeB-gemini", label: "B: Cyber-Console (Gemini)" },
+    { id: "themeC-gemini", label: "C: Modern Academic (Gemini)" },
   ];
 
   /**
@@ -84,4 +87,5 @@
 
   init();
 })();
+
 

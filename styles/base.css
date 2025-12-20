@@ -227,7 +227,7 @@ select:focus {
 /* ===== Inversions Grid ===== */
 .inversions {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: calc(var(--spacing-sm) * var(--inv-scale, 1));
 }
 
@@ -288,6 +288,7 @@ select:focus {
   grid-template-columns: auto 1fr;
   gap: calc(var(--spacing-xs) * var(--inv-scale, 1));
   align-items: center;
+  overflow: visible;
 }
 
 .string-labels {
@@ -309,14 +310,15 @@ select:focus {
   --cols: 5;
   position: relative;
   display: grid;
-  grid-template-columns: repeat(var(--cols), minmax(calc(44px * var(--inv-scale, 1)), 1fr));
+  grid-template-columns: repeat(var(--cols), 1fr);
   grid-template-rows: repeat(var(--rows), calc(52px * var(--inv-scale, 1)));
   gap: calc(6px * var(--inv-scale, 1));
   background: var(--grid-bg);
   border-radius: var(--radius-md);
   border: 1px solid var(--card-outline);
-  padding: calc(6px * var(--inv-scale, 1));
+  padding: calc(8px * var(--inv-scale, 1));
   transition: background 0.3s ease, border-color 0.3s ease;
+  overflow: visible;
 }
 
 .grid-cell {
@@ -329,7 +331,7 @@ select:focus {
 /* ===== Notes ===== */
 .note {
   position: absolute;
-  inset: 0;
+  inset: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -428,4 +430,5 @@ select:focus {
     right: 16px;
   }
 }
+
 
