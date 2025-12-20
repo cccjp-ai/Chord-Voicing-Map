@@ -6,8 +6,8 @@
   const THEME_KEY = "chord-voicing-map-theme";
   const DEFAULT_THEME = "themeA";
   const THEMES = [
-    { id: "themeA", label: "A: Minimal (Opus)" },
-    { id: "themeB", label: "B: Studio (Opus)" },
+    { id: "themeB", label: "A: Minimal (Opus)" },
+    { id: "themeA", label: "B: Studio (Opus)" },
     { id: "themeC", label: "C: Learning (Opus)" },
     { id: "themeA-gemini", label: "A: Neo-Glass (Gemini)" },
     { id: "themeB-gemini", label: "B: Cyber-Console (Gemini)" },
