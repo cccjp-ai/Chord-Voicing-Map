@@ -1,0 +1,292 @@
+/*
+ * Theme Definitions
+ * ------------------
+ * themeA: Minimal - 余白多め、線少なめ、クリーンでモダン
+ * themeB: Studio - ダークでスタジオ機材っぽい、メーター/パネル感
+ * themeC: Learning - 明るめで学習アプリっぽい、ガイド感、可読性優先
+ */
+
+/* ===== Theme A: Minimal ===== */
+[data-theme="themeA"] {
+  /* Colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #fafafa;
+  --bg-gradient: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+  --panel-bg: #ffffff;
+  --panel-outline: transparent;
+  --card-bg: #ffffff;
+  --card-outline: rgba(0, 0, 0, 0.04);
+  --accent: #3b82f6;
+  --accent-2: #8b5cf6;
+  --text-primary: #1a1a1a;
+  --text-secondary: #6b7280;
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-panel: none;
+  --grid-lines: rgba(0, 0, 0, 0.06);
+  
+  /* Note colors */
+  --note-major: #fbbf24;
+  --note-minor: #34d399;
+  --note-root: #ef4444;
+  --string-set-highlight: #ec4899;
+  
+  /* Typography */
+  --font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-scale: 1.35;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 600;
+  --letter-spacing-title: -0.02em;
+  --letter-spacing-normal: 0;
+  
+  /* Spacing */
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 40px;
+  --spacing-xl: 64px;
+  --page-padding: 48px 32px 64px;
+  
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-button: 8px;
+  --radius-card: 16px;
+  
+  /* Borders */
+  --border-width: 0px;
+  --border-style: none;
+  
+  /* Buttons */
+  --button-bg: transparent;
+  --button-bg-active: #f3f4f6;
+  --button-border: none;
+  --button-padding: 12px 20px;
+  --button-shadow: none;
+  
+  /* Segmented Control */
+  --segmented-bg: #f3f4f6;
+  --segmented-gap: 4px;
+  --segmented-padding: 4px;
+  --segmented-height: 56px;
+  
+  /* Grid */
+  --grid-bg: #fafafa;
+  --cell-border-style: solid;
+  --cell-border-color: rgba(0, 0, 0, 0.04);
+  
+  /* Card Effects */
+  --card-glow: none;
+  --inv-scale: 0.9;
+  
+  /* String Set Control */
+  --string-set-width: 340px;
+  --string-set-font-size: 1em;
+  --string-set-letter-spacing: 0.05em;
+}
+
+/* ===== Theme B: Studio ===== */
+[data-theme="themeB"] {
+  /* Colors */
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #141414;
+  --bg-gradient: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+  --panel-bg: linear-gradient(145deg, #1a1a1a 0%, #0f0f0f 100%);
+  --panel-outline: #2a2a2a;
+  --card-bg: linear-gradient(180deg, #1f1f1f 0%, #141414 100%);
+  --card-outline: #333333;
+  --accent: #00ff88;
+  --accent-2: #ff6b35;
+  --text-primary: #e0e0e0;
+  --text-secondary: #808080;
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  --shadow-panel: 0 8px 32px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --grid-lines: rgba(255, 255, 255, 0.1);
+  
+  /* Note colors - VUメーター風 */
+  --note-major: #ffcc00;
+  --note-minor: #00ff88;
+  --note-root: #ff3333;
+  --string-set-highlight: #ff0066;
+  
+  /* Typography */
+  --font-family: "DIN Alternate", "Eurostile", "Orbitron", "Roboto Mono", monospace;
+  --font-scale: 1.4;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --letter-spacing-title: 0.15em;
+  --letter-spacing-normal: 0.02em;
+  
+  /* Spacing */
+  --spacing-xs: 6px;
+  --spacing-sm: 12px;
+  --spacing-md: 20px;
+  --spacing-lg: 32px;
+  --spacing-xl: 48px;
+  --page-padding: 32px 24px 48px;
+  
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-button: 4px;
+  --radius-card: 8px;
+  
+  /* Borders - パネル/機材風 */
+  --border-width: 2px;
+  --border-style: solid;
+  
+  /* Buttons - メカニカル風 */
+  --button-bg: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%);
+  --button-bg-active: linear-gradient(180deg, #333 0%, #222 100%);
+  --button-border: 1px solid #444;
+  --button-padding: 10px 16px;
+  --button-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 2px 4px rgba(0,0,0,0.3);
+  
+  /* Segmented Control - ラック機材風 */
+  --segmented-bg: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
+  --segmented-gap: 2px;
+  --segmented-padding: 3px;
+  --segmented-height: 60px;
+  
+  /* Grid - LED/メーター風 */
+  --grid-bg: #0f0f0f;
+  --cell-border-style: solid;
+  --cell-border-color: #2a2a2a;
+  
+  /* Card Effects - LEDグロー風 */
+  --card-glow: 0 0 30px rgba(0, 255, 136, 0.1);
+  --inv-scale: 0.85;
+  
+  /* String Set Control */
+  --string-set-width: 300px;
+  --string-set-font-size: 1em;
+  --string-set-letter-spacing: 0.1em;
+}
+
+/* ===== Theme C: Learning ===== */
+[data-theme="themeC"] {
+  /* Colors - 明るく読みやすい */
+  --bg-primary: #f0f4f8;
+  --bg-secondary: #e8eef4;
+  --bg-gradient: linear-gradient(180deg, #ffffff 0%, #e8f4fc 50%, #f0f4f8 100%);
+  --panel-bg: #ffffff;
+  --panel-outline: #d0e3f0;
+  --card-bg: #ffffff;
+  --card-outline: #c8dae8;
+  --accent: #2563eb;
+  --accent-2: #7c3aed;
+  --text-primary: #1e3a5f;
+  --text-secondary: #5a7a9a;
+  --shadow-card: 0 2px 8px rgba(30, 58, 95, 0.08), 0 4px 16px rgba(30, 58, 95, 0.06);
+  --shadow-panel: 0 4px 12px rgba(30, 58, 95, 0.1);
+  --grid-lines: #d0e3f0;
+  
+  /* Note colors - 教育的で視認性高い */
+  --note-major: #f59e0b;
+  --note-minor: #10b981;
+  --note-root: #dc2626;
+  --string-set-highlight: #ec4899;
+  
+  /* Typography - 読みやすさ重視 */
+  --font-family: "Inter", "Source Sans Pro", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-scale: 1.5;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 600;
+  --letter-spacing-title: 0.02em;
+  --letter-spacing-normal: 0.01em;
+  
+  /* Spacing - ゆとりのあるレイアウト */
+  --spacing-xs: 10px;
+  --spacing-sm: 18px;
+  --spacing-md: 28px;
+  --spacing-lg: 44px;
+  --spacing-xl: 72px;
+  --page-padding: 40px 28px 56px;
+  
+  /* Border Radius - フレンドリー/丸み */
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-button: 12px;
+  --radius-card: 20px;
+  
+  /* Borders - 明確な区切り */
+  --border-width: 2px;
+  --border-style: solid;
+  
+  /* Buttons - アクセスしやすい */
+  --button-bg: #f8fafc;
+  --button-bg-active: #e0f2fe;
+  --button-border: 1px solid #d0e3f0;
+  --button-padding: 14px 22px;
+  --button-shadow: 0 1px 3px rgba(30, 58, 95, 0.08);
+  
+  /* Segmented Control */
+  --segmented-bg: #f1f5f9;
+  --segmented-gap: 6px;
+  --segmented-padding: 6px;
+  --segmented-height: 64px;
+  
+  /* Grid */
+  --grid-bg: #f8fafc;
+  --cell-border-style: dashed;
+  --cell-border-color: #c8dae8;
+  
+  /* Card Effects - サブtleなハイライト */
+  --card-glow: none;
+  --inv-scale: 0.88;
+  
+  /* String Set Control */
+  --string-set-width: 360px;
+  --string-set-font-size: 1em;
+  --string-set-letter-spacing: 0.05em;
+}
+
+/* Theme B 専用 - スタジオ機材エフェクト */
+[data-theme="themeB"] .panel {
+  box-shadow: var(--shadow-panel);
+}
+
+[data-theme="themeB"] .inversion-card {
+  box-shadow: var(--shadow-card), var(--card-glow);
+}
+
+[data-theme="themeB"] .seg-button.is-active {
+  box-shadow: 0 0 12px rgba(0, 255, 136, 0.4), inset 0 1px 0 rgba(255,255,255,0.2);
+}
+
+[data-theme="themeB"] .note {
+  box-shadow: 0 0 8px currentColor, inset 0 1px 0 rgba(255,255,255,0.3);
+}
+
+/* Theme C 専用 - 学習アプリ風ヒント */
+[data-theme="themeC"] .card-head h2 {
+  position: relative;
+  padding-left: 12px;
+}
+
+[data-theme="themeC"] .card-head h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 70%;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+[data-theme="themeC"] .inversion-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+[data-theme="themeC"] .inversion-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(30, 58, 95, 0.12);
+}
+
